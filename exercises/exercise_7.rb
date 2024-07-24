@@ -10,3 +10,14 @@ puts "Exercise 7"
 puts "----------"
 
 # Your code goes here ...
+
+print "Give me a store name:"
+store_name = gets.chomp
+
+new_store = Store.new(name: store_name)
+new_store.save
+err = new_store.errors
+
+err.each do |error|
+  puts "The column #{error.attribute} is #{error.type}" 
+end
